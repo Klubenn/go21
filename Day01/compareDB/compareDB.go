@@ -54,7 +54,22 @@ func compareRecipy(oldCake, newCake Cake) {
 	if oldCake.Time != newCake.Time {
 		fmt.Println("CHANGED cooking time for cake \"%s\" - \"%s\" instead of \"%s\"", oldCake.Name, newCake.Time, oldCake.Time)
 	}
-	
+	for _, oldIngr := range oldCake.Ingredients {
+		var ingrPresent bool
+		for _, newIngr := range newCake.Ingredients {
+			if oldIngr.IngredientName == newIngr.IngredientName {
+				ingrPresent = true
+				if oldIngr.IngredientCount != newIngr.IngredientCount {
+					fmt.Println("CHANGED unit count for ingredient \"%s\" for cake  \"%s\" - \"%s\" instead of \"%s\"", oldIngr.IngredientCount, oldCake.Name, newIngr.IngredientCount, oldIngr.IngredientCount)
+				}
+				if oldIngr.IngredientUnit != newIngr.IngredientUnit{
+					if oldIngr.IngredientUnit != "" && newIngr.IngredientUnit != "" {
+						fmt.Println("CHANGED unit for ingredient \"Flour\" for cake  \"Red Velvet Strawberry Cake\" - \"mugs\" instead of \"cups\"")
+					} else if 
+				}
+			}
+		}
+	}
 }
 
 func compareDB(oldDB, newDB Recipes) {
