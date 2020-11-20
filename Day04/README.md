@@ -41,60 +41,60 @@ Turns out, the thief used the first piece of paper he had on his desk, and by a 
 ---
 swagger: '2.0'
 info:
-version: 1.0.0
-title: Candy Server
+  version: 1.0.0
+  title: Candy Server
 paths:
-/buy_candy:
-post:
-consumes:
-- application/json
-produces:
-- application/json
-parameters:
-- in: body
-name: order
-description: summary of the candy order
-schema:
-type: object
-required:
-- money
-- candyType
-- candyCount
-properties:
-money:
-description: amount of money put into vending machine
-type: integer
-candyType:
-description: kind of candy
-type: string
-candyCount:
-description: number of candy
-type: integer
-operationId: buyCandy
-responses:
-201:
-description: purchase succesful
-schema:
-type: object
-properties:
-thanks:
-type: string
-change:
-type: integer
-400:
-description: some error in input data
-schema:
-type: object
-properties:
-error:
-type: string
-402:
-description: not enough money
-schema:
-type: object
-properties:
-error:
-type: string
+  /buy_candy:
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: order
+          description: summary of the candy order
+          schema:
+            type: object
+            required:
+              - money
+              - candyType
+              - candyCount
+            properties:
+              money:
+                description: amount of money put into vending machine
+                type: integer
+              candyType:
+                description: kind of candy
+                type: string
+              candyCount:
+                description: number of candy
+                type: integer
+      operationId: buyCandy
+      responses:
+        201:
+          description: purchase succesful
+          schema:
+              type: object
+              properties:
+                thanks:
+                  type: string
+                change:
+                  type: integer
+        400:
+          description: some error in input data
+          schema:
+              type: object
+              properties:
+                error:
+                  type: string
+        402:
+          description: not enough money
+          schema:
+              type: object
+              properties:
+                error:
+                  type: string
 ```
 
 In next hours, mister Rogers told you all the details. In order to recreate the server, you have to use this spec to produce a bunch of Go code which will actually implement the backend part. It's possible to rewrite the whole thing manually, but in this case the thief may get away before you do it, so you have to generate the code ASAP.
@@ -238,7 +238,8 @@ At least you should probably have as much candy as you want in return. Like, for
 			- Even though it is required to not modify the C code, you'll still have to comment out `main()` function in it, otherwise the program won't compile (two entry points)
 
 # Chapter 4: Additional reading / viewing
+[Using the spec](https://goswagger.io/tutorial/custom-server.html)
 
-			[Using the spec](https://goswagger.io/tutorial/custom-server.html)
-			[Secure connections](https://www.youtube.com/watch?v=kxKLYDLzuHA)
-			[Original cowsay](https://en.wikipedia.org/wiki/Cowsay)
+[Secure connections](https://www.youtube.com/watch?v=kxKLYDLzuHA)
+
+[Original cowsay](https://en.wikipedia.org/wiki/Cowsay)
